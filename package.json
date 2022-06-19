@@ -1,0 +1,34 @@
+{
+  "name": "kgm.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel src/index.html",
+    "standard": "standard --fix \"src/**/*.{js,jsx}\" --quiet"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GalMarkelj/kgm.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GalMarkelj/kgm.github.io/issues"
+  },
+  "homepage": "https://github.com/GalMarkelj/kgm.github.io#readme",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.6.1",
+    "parcel": "^2.6.1",
+    "process": "^0.11.10",
+    "standard": "^17.0.0"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "browserslist": [
+    "last 2 Firefox versions"
+  ]
+}
