@@ -1,0 +1,156 @@
+@use "sass:math";
+@use './mixins';
+
+$gutter: (mobile: 20px, tablet: 30px, desktop: 40px) !default;
+
+// Normalization losely based on https://github.com/necolas/normalize.css
+html { -webkit-text-size-adjust: 100%; }
+
+body { margin: 0; }
+
+pre, code, kbd, samp {
+  font-family: monospace;
+  font-size: 1em;
+}
+
+abbr[title] {
+  border-bottom: 0;
+  text-decoration: underline dotted;
+}
+
+small { font-size: 80%; }
+
+sub, sup {
+  position: relative;
+  font-size: 75%;
+  line-height: 0;
+  vertical-align: baseline;
+}
+sub { bottom: -0.25em; }
+sup { top: -0.5em; }
+
+img { border-style: none; }
+img, svg {
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+}
+svg { pointer-events: none; }
+
+hr {
+  display: block;
+  height: 0;
+  border-width: 1px 0;
+  border-style: solid;
+  margin: map-get($gutter, mobile) 0;
+  @include breakpoint(tablet) { margin: map-get($gutter, tablet) 0; }
+  @include breakpoint(desktop) { margin: map-get($gutter, desktop) 0; }
+}
+
+[disabled] { pointer-events: none; }
+
+/*
+ * Usable classes
+ */
+.hidden,
+[hidden] {
+  display: none  !important;
+  visibility: hidden;
+}
+
+.visuallyhidden {
+  position: absolute;
+  width: 0; height: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.pointer-none {
+  pointer-events: none;
+}
+
+// Margins
+.m-top--0 { margin-top: 0; }
+.m-top--xs { margin-top: 8px; }
+.m-top--s { margin-top: math.div(map-get($gutter, mobile), 2); }
+.m-top--m { margin-top: map-get($gutter, mobile); }
+.m-top--l { margin-top: map-get($gutter, mobile) * 2; }
+.m-bottom--0 { margin-bottom: 0; }
+.m-bottom--xs { margin-bottom: 8px; }
+.m-bottom--s { margin-bottom: math.div(map-get($gutter, mobile), 2); }
+.m-bottom--m { margin-bottom: map-get($gutter, mobile); }
+.m-bottom--l { margin-bottom: map-get($gutter, mobile) * 2; }
+.m-left--0 { margin-left: 0; }
+.m-left--xs { margin-left: 8px; }
+.m-left--s { margin-left: math.div(map-get($gutter, mobile), 2); }
+.m-left--m { margin-left: map-get($gutter, mobile); }
+.m-left--l { margin-left: map-get($gutter, mobile) * 2; }
+.m-right--0 { margin-right: 0; }
+.m-right--xs { margin-right: 8px; }
+.m-right--s { margin-right: math.div(map-get($gutter, mobile), 2); }
+.m-right--m { margin-right: map-get($gutter, mobile); }
+.m-right--l { margin-right: map-get($gutter, mobile) * 2; }
+@include breakpoint(tablet) {
+  .m-top--s { margin-top: math.div(map-get($gutter, tablet), 2); }
+  .m-top--m { margin-top: map-get($gutter, tablet); }
+  .m-top--l { margin-top: map-get($gutter, tablet) * 2; }
+  .m-bottom--s { margin-bottom: math.div(map-get($gutter, tablet), 2); }
+  .m-bottom--m { margin-bottom: map-get($gutter, tablet); }
+  .m-bottom--l { margin-bottom: map-get($gutter, tablet) * 2; }
+  .m-left--s { margin-left: math.div(map-get($gutter, tablet), 2); }
+  .m-left--m { margin-left: map-get($gutter, tablet); }
+  .m-left--l { margin-left: map-get($gutter, tablet) * 2; }
+  .m-right--s { margin-right: math.div(map-get($gutter, tablet), 2); }
+  .m-right--m { margin-right: map-get($gutter, tablet); }
+  .m-right--l { margin-right: map-get($gutter, tablet) * 2; }
+}
+@include breakpoint(desktop) {
+  .m-top--s { margin-top: math.div(map-get($gutter, desktop), 2); }
+  .m-top--m { margin-top: map-get($gutter, desktop); }
+  .m-top--l { margin-top: map-get($gutter, desktop) * 2; }
+  .m-bottom--s { margin-bottom: math.div(map-get($gutter, desktop), 2); }
+  .m-bottom--m { margin-bottom: map-get($gutter, desktop); }
+  .m-bottom--l { margin-bottom: map-get($gutter, desktop) * 2; }
+  .m-left--s { margin-left: math.div(map-get($gutter, desktop), 2); }
+  .m-left--m { margin-left: map-get($gutter, desktop); }
+  .m-left--l { margin-left: map-get($gutter, desktop) * 2; }
+  .m-right--s { margin-right: math.div(map-get($gutter, desktop), 2); }
+  .m-right--m { margin-right: map-get($gutter, desktop); }
+  .m-right--l { margin-right: map-get($gutter, desktop) * 2; }
+}
+
+// Responsive embed
+.responsive { position: relative; }
+.responsive--16by9 { padding-bottom: pc(9, 16); }
+.responsive__element {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+}
+img.responsive__element { object-fit: cover; }
+
+// Display box model
+.d--inline { display: inline; }
+.d--inline-block { display: inline-block; }
+.d--block { display: block; }
+
+// Rotations
+.rotate--cw { transform: rotate(90deg); }
+.rotate--ccw { transform: rotate(-90deg); }
+.rotate--flip { transform: rotate(180deg); }
+
+// Overflow
+.overflow-x--auto { overflow-x: auto;}
+
+// Max width
+.max--100 { max-width: 100px; }
+.max--200 { max-width: 200px; }
+.max--300 { max-width: 300px; }
+.max--400 { max-width: 400px; }
+.max--480 { max-width: 480px; }
+.max--500 { max-width: 500px; }
+.max--600 { max-width: 600px; }
