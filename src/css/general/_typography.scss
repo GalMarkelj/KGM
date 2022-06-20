@@ -1,0 +1,143 @@
+@use './mixins';
+
+$default_font_family: 'Roboto', system-ui, sans-serif !default;
+$default_font_size: (mobile: 14, tablet: 15, desktop: 16) !default;
+$default_line_height: 1.5 !default;
+$secondary_font_family: 'Oswald', system-ui, sans-serif !default;
+$font_h1: (mobile: 24, tablet: 32, desktop: 32) !default;
+$font_h2: (mobile: 20, tablet: 24, desktop: 24) !default;
+$font_h3: (mobile: 18, tablet: 20, desktop: 20) !default;
+$font_xs: (mobile: 12, tablet: 12, desktop: 12) !default;
+$font_s: (mobile: 12, tablet: 12, desktop: 14) !default;
+$font_m: (mobile: 14, tablet: 15, desktop: 16) !default;
+$font_l: (mobile: 16, tablet: 18, desktop: 18) !default;
+
+$tx_color: #f7f8fa !default;
+$bg_color: #02060e !default;
+$link_color: #e310cb !default;
+$positive_tx: forestgreen !default;
+$negative_tx: crimson !default;
+$warning_tx: #F95A37 !default;
+$sky_c: #86fbfb;
+$sky_dark_c: #0d314b;
+$barbie_c: #ff17e4;
+$barbie_dark_c: #4b0d49;
+$light_c: #f7f8fa;
+
+// Font sizes
+html { font-size: #{map-get($default_font_size, mobile)}px; }
+.h1, h1 { font-size: rem($font_h1); }
+.h2, h2 { font-size: rem($font_h2); }
+.h3, h3 { font-size: rem($font_h3); }
+.f--xs { font-size: rem($font_xs); }
+.f--s { font-size: rem($font_s); }
+.f--m { font-size: rem($font_m); }
+.f--l { font-size: rem($font_l); }
+@include breakpoint(tablet) {
+  html { font-size: #{map-get($default_font_size, tablet)}px; }
+  .h1, h1 { font-size: rem($font_h1, tablet); }
+  .h2, h2 { font-size: rem($font_h2, tablet); }
+  .h3, h3 { font-size: rem($font_h3, tablet); }
+  .f--xs { font-size: rem($font_xs, tablet); }
+  .f--s { font-size: rem($font_s, tablet); }
+  .f--m { font-size: rem($font_m, tablet); }
+  .f--l { font-size: rem($font_l, tablet); }
+}
+@include breakpoint(desktop) {
+  html { font-size: #{map-get($default_font_size, desktop)}px; }
+  .h1, h1 { font-size: rem($font_h1, desktop); }
+  .h2, h2 { font-size: rem($font_h2, desktop); }
+  .h3, h3 { font-size: rem($font_h3, desktop); }
+  .f--xs { font-size: rem($font_xs, desktop); }
+  .f--s { font-size: rem($font_s, desktop); }
+  .f--m { font-size: rem($font_m, desktop); }
+  .f--l { font-size: rem($font_l, desktop); }
+}
+
+body {
+  color: $tx_color;
+  background-color: $bg_color;
+  font-family: $default_font_family;
+  line-height: $default_line_height;
+  -webkit-font-smoothing: antialiased;
+  transition-property: color, background-color;
+  transition-duration: 150ms;
+}
+
+button { font-family: $default_font_family; }
+
+img, svg { vertical-align: middle; }
+
+hr { border-color: darken($bg_color, 5%) transparent lighten($bg_color, 5%); }
+
+p, ul, ol, table, blockquote, figure {
+  margin: 0 0 #{$default_line_height}em;
+  &:last-child { margin-bottom: 0; }
+}
+
+blockquote {
+  font-size: 1.25em;
+  font-style: italic;
+  margin-left: 2em;
+  padding-left: 2em;
+  border-left: 5px solid;
+}
+
+a { color: $link_color; }
+a:not(.button):visited { opacity: 0.5; }
+a:hover { text-decoration: none; }
+
+// Heading
+.h1, h1,
+.h2, h2,
+.h3, h3 {
+  margin: 1.5em 0 0.75em;
+  line-height: 1.2;
+  font-weight: bold;
+  &:first-child { margin-top: 0; }
+}
+
+// Font
+.f--inherit { font: inherit; }
+.f--bold, strong, b { font-weight: bold; }
+.f--italic { font-style: italic; }
+.f--secondary { font-family: $secondary_font_family; }
+.f--normal {
+  font-weight: normal;
+  font-style: normal;
+}
+
+// Text
+.t--left { text-align: left; }
+.t--right { text-align: right; }
+.t--center { text-align: center; }
+.t--justify {
+  text-align: justify;
+  word-break: normal;
+  // hyphens: auto;
+}
+.t--wrap { white-space: normal; }
+.t--nowrap { white-space: nowrap; }
+.t--uppercase { text-transform: uppercase; }
+.t--lowercase { text-transform: lowercase; }
+.t--capitalize { text-transform: capitalize; }
+.t--normal { text-transform: none; }
+.t--underline { text-decoration: underline; }
+
+// Color
+.c--inherit { color: inherit; }
+.c--error { color: $negative_tx; }
+.c--warning { color: $warning_tx; }
+.c--success { color: $positive_tx; }
+.c--category { color: $hoana_orange2; }
+.c--sky { color: $sky_c; }
+.c--sky-dark { color: $sky_dark_c; }
+.c--barbie { color: $barbie_c; }
+.c--barbie-dark { color: $barbie_dark_c; }
+.c--light { color: $light_c; }
+
+// Letter spacing
+.t-spacing--0 { letter-spacing: 0; }
+.t-spacing--s { letter-spacing: 0.05em; }
+.t-spacing--m { letter-spacing: 0.1em; }
+.t-spacing--l { letter-spacing: 0.15em; }
