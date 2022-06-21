@@ -1,0 +1,49 @@
+.flex { display: flex; }
+.flex--vertical {
+  display: flex;
+  flex-direction: column;
+}
+.flex-inline { display: inline-flex; }
+
+// Horizontal flow
+.flex--wrap { flex-wrap: wrap; } // items will wrap instead of overflowing rows
+
+.flex--reverse { flex-direction: row-reverse; } // items rendered in reverse order
+
+.flex--autosize, // items fit content size
+.flex--apart,    // items with space between
+.flex--spread,   // items with space around
+.flex--center,
+.flex--start,
+.flex--end {
+  > .flex__item { flex: 0 0 auto; }
+}
+.flex--apart { justify-content: space-between; }
+.flex--spread { justify-content: space-around; }
+.flex--center { justify-content: center; }
+
+// Vertical flow
+.flex--top { align-items: flex-start; }  // align items top edge
+.flex--bottom { align-items: flex-end; } // align items bottom edge
+.flex--middle { align-items: center; }   // align items to middle
+.flex--start { justify-content: flex-start; }
+.flex--end { justify-content: flex-end; }
+
+// Individual items
+.flex__item {
+  flex: 1 1 0;
+  min-width: 0;
+  &.flex__item--double { flex-grow: 2; }
+  &.flex__item--triple { flex-grow: 3; }
+  &.flex__item--quadra { flex-grow: 4; }
+  &.flex__item--penta { flex-grow: 5; }
+}
+
+.flex__item--autosize {
+  flex-grow: 0;
+  flex-basis: auto;
+}
+
+// Flex items
+.flex-self--end { align-self: flex-end; }
+.flex-self--start { align-self: flex-start; }

@@ -1,7 +1,9 @@
 @use "sass:math";
-@use './mixins';
+@use './mixins' as *;
+@use './typography' as *;
 
 $gutter: (mobile: 20px, tablet: 30px, desktop: 40px) !default;
+$trans_default: 150ms;
 
 // Normalization losely based on https://github.com/necolas/normalize.css
 html { -webkit-text-size-adjust: 100%; }
@@ -154,3 +156,18 @@ img.responsive__element { object-fit: cover; }
 .max--480 { max-width: 480px; }
 .max--500 { max-width: 500px; }
 .max--600 { max-width: 600px; }
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+// Lists
+.list--inline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row wrap;
+  list-style-type: none;
+}

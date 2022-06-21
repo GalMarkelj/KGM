@@ -1,0 +1,11 @@
+@use '../general' as app;
+
+.nav-list__item--link {
+  margin-left: 4rem;
+  text-transform: none;
+  text-decoration: none;
+  color: app.$light_c;
+  transition: color app.$trans_default ease-in;
+  &:hover { color: app.$barbie_c; }
+}
+.nav-list__item:first-child .nav-list__item--link  { margin-left: 0; }
