@@ -40,9 +40,9 @@ const SubHeader = ({links}) => (
       </nav>
 
       <div className="flex flex--center">
-        <div class="t--center fixed--bottom">
+        <div class="t--center fixed--bottom m-bottom--s">
           <h2 class="m-bottom--s f--secondary h3">Klavdij - Gal Markelj &middot; Junior front-end developer</h2>
-          <p class="m-bottom--m f--s">&copy; 2022 Klavdij - Gal Markelj. All rights reserved.</p>
+          <p class="f--s">&copy; 2022 Klavdij - Gal Markelj. All rights reserved.</p>
         </div>
       </div>
     </div>

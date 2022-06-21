@@ -14,6 +14,7 @@
 
 #sub-header {
   bottom: 100%;
+  background-color: app.$bg_color;
   transition: app.$trans_slow;
 }
 #sub-header .nav-list {
