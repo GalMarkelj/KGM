@@ -1,5 +1,6 @@
 @use '../general' as app;
 
+#header { z-index: 0; }
 #header .nav__logo img { width: 130px; }
 #header .nav-list { padding-left: 0; }
 #header .nav-list__item:last-child { display: none; }
