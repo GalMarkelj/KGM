@@ -3,7 +3,11 @@
 @use './typography' as *;
 
 $gutter: (mobile: 20px, tablet: 30px, desktop: 40px) !default;
-$trans_default: 150ms;
+
+$trans_fast: 150ms;
+$trans_slow: .8s;
+$trans_default: .5s;
+
 
 // Normalization losely based on https://github.com/necolas/normalize.css
 html { -webkit-text-size-adjust: 100%; }
@@ -122,7 +126,40 @@ hr {
   .m-right--s { margin-right: math.div(map-get($gutter, desktop), 2); }
   .m-right--m { margin-right: map-get($gutter, desktop); }
   .m-right--l { margin-right: map-get($gutter, desktop) * 2; }
+  
 }
+// Auto margin
+.m-right--auto { margin-right: auto; }
+.m-left--auto { margin-left: auto; }
+.m-top--auto { margin-top: auto; }
+.m-bottom--auto { margin-bottom: auto; }
+.m--center { margin: 0 auto; }
+.m--middle { margin: auto 0; }
+
+// Paddings
+.p--xs { padding: 5px; }
+.p--s { padding: 10px; }
+.p--m { padding: 15px; }
+.p--l { padding: 20px; }
+.p-side--s {
+  @media (max-width: 1200px) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+// Layout
+.container {
+  box-sizing: border-box;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container--m { max-width: 700px; }
+.container--s { max-width: 500px; }
+.container--xs { max-width: 450px; }
+
 
 // Responsive embed
 .responsive { position: relative; }
@@ -157,12 +194,6 @@ img.responsive__element { object-fit: cover; }
 .max--500 { max-width: 500px; }
 .max--600 { max-width: 600px; }
 
-.container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 10px;
-}
-
 // Lists
 .list--inline {
   display: flex;
@@ -170,4 +201,17 @@ img.responsive__element { object-fit: cover; }
   align-items: center;
   flex-flow: row wrap;
   list-style-type: none;
+}
+
+// Positions
+.pos--rel { position: relative; }
+.pos--abs { position: absolute;}
+
+.fixed--bottom {
+  position: absolute;
+  bottom: 0;
+}
+.fixed--top {
+  position: absolute;
+  top: 0;
 }

@@ -1,6 +1,26 @@
+@use '../general' as app;
+
 #header .nav__logo img { width: 130px; }
 #header .nav-list { padding-left: 0; }
 #header .nav-list__item:last-child { display: none; }
+#header .nav-list__item--link { margin-left: 4rem; }
+#header .nav-list__item:first-child .nav-list__item--link  { margin-left: 0; }
+
+#sub-header .nav-list__item--link,
+#header .nav-list__item--link {
+  transition: color app.$trans_fast ease-in;
+  &:hover { color: app.$barbie_c; }
+}
+
+#sub-header {
+  bottom: 100%;
+  transition: app.$trans_slow;
+}
+#sub-header .nav-list {
+  padding: 0;
+  list-style-type: none;
+  
+}
 
 @media (max-width: 786px) {
   #header .nav { flex-direction: column; }
