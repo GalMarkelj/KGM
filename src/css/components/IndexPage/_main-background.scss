@@ -1,0 +1,6 @@
+.main-background {
+  z-index: -10;
+  object-fit: cover;
+  filter: brightness(45%);
+  @media (min-width: 786px) { height: 140%; }
+}

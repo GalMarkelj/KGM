@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom"
 
-import logo from '../images/KGM_1_outline.svg'
+import logo from '../images/logo/KGM_1_outline.svg'
+
+const headerLinks = [
+  {url: '/projects', label: 'Projects'},
+  {url: '/resume', label: 'Resume'},
+  {url: 'https://github.com/GalMarkelj', label: 'Github', icon: 'fa-brands fa-github', isExtrnal: true}
+]
 
 const HeaderLink = ({url, label, icon, isExternal}) => (
   <li className="nav-list__item">       
@@ -48,11 +54,11 @@ const SubHeader = ({links}) => (
     </div>
   </div>
 )
-const Header = ({links}) => {
+const Header = () => {
   return (
     <div>
-      <MainHeader links={links} />
-      <SubHeader links={links} />
+      <MainHeader links={headerLinks} />
+      <SubHeader links={headerLinks} />
     </div>
   )
 }
