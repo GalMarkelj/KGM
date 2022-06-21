@@ -25,6 +25,12 @@ $barbie_c: #ff17e4;
 $barbie_dark_c: #4b0d49;
 $light_c: #f7f8fa;
 
+$overflow_c: linear-gradient(90deg, rgba(255, 23, 228, 1) 0%, rgba(134, 251, 251, 1));
+.overflow-line {
+  height: 2px;
+  background: $overflow_c;
+}
+
 // Font sizes
 html { font-size: #{map-get($default_font_size, mobile)}px; }
 .h1, h1 { font-size: rem($font_h1); }

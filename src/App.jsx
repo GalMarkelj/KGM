@@ -17,9 +17,7 @@ const App = () => {
     <StrictMode>
       <BrowserRouter>
 
-        <div className="container">
-          <Header links={headerLinks} />
-        </div>
+        <Header links={headerLinks} />
         
         <Routes>
         </Routes>
