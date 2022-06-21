@@ -1,4 +1,4 @@
-@use './mixins';
+@use './mixins' as *;
 
 $default_font_family: 'Roboto', system-ui, sans-serif !default;
 $default_font_size: (mobile: 14, tablet: 15, desktop: 16) !default;
@@ -11,6 +11,7 @@ $font_xs: (mobile: 12, tablet: 12, desktop: 12) !default;
 $font_s: (mobile: 12, tablet: 12, desktop: 14) !default;
 $font_m: (mobile: 14, tablet: 15, desktop: 16) !default;
 $font_l: (mobile: 16, tablet: 18, desktop: 18) !default;
+$font_xl: (mobile: 18, tablet: 20, desktop: 22) !default;
 
 $tx_color: #f7f8fa !default;
 $bg_color: #02060e !default;
@@ -33,6 +34,8 @@ html { font-size: #{map-get($default_font_size, mobile)}px; }
 .f--s { font-size: rem($font_s); }
 .f--m { font-size: rem($font_m); }
 .f--l { font-size: rem($font_l); }
+.f--xl { font-size: rem($font_xl); }
+.f--xxl { font-size: rem($font_h1); }
 @include breakpoint(tablet) {
   html { font-size: #{map-get($default_font_size, tablet)}px; }
   .h1, h1 { font-size: rem($font_h1, tablet); }
@@ -42,6 +45,8 @@ html { font-size: #{map-get($default_font_size, mobile)}px; }
   .f--s { font-size: rem($font_s, tablet); }
   .f--m { font-size: rem($font_m, tablet); }
   .f--l { font-size: rem($font_l, tablet); }
+  .f--xl { font-size: rem($font_xl, tablet); }
+  .f--xxl { font-size: rem($font_h1, tablet); }
 }
 @include breakpoint(desktop) {
   html { font-size: #{map-get($default_font_size, desktop)}px; }
@@ -52,6 +57,8 @@ html { font-size: #{map-get($default_font_size, mobile)}px; }
   .f--s { font-size: rem($font_s, desktop); }
   .f--m { font-size: rem($font_m, desktop); }
   .f--l { font-size: rem($font_l, desktop); }
+  .f--xl { font-size: rem($font_xl, desktop); }
+  .f--xxl { font-size: rem($font_h1, desktop); }
 }
 
 body {
@@ -121,7 +128,10 @@ a:hover { text-decoration: none; }
 .t--uppercase { text-transform: uppercase; }
 .t--lowercase { text-transform: lowercase; }
 .t--capitalize { text-transform: capitalize; }
-.t--normal { text-transform: none; }
+.t--normal {
+  text-transform: none;
+  text-decoration: none;
+}
 .t--underline { text-decoration: underline; }
 
 // Color
@@ -129,7 +139,6 @@ a:hover { text-decoration: none; }
 .c--error { color: $negative_tx; }
 .c--warning { color: $warning_tx; }
 .c--success { color: $positive_tx; }
-.c--category { color: $hoana_orange2; }
 .c--sky { color: $sky_c; }
 .c--sky-dark { color: $sky_dark_c; }
 .c--barbie { color: $barbie_c; }
