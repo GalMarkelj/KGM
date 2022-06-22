@@ -1,4 +1,7 @@
 @use './general';
 
 @use './components/header';
+
+// Index page
 @use './components/IndexPage/main-background';
+@use './components/IndexPage/site-title';
