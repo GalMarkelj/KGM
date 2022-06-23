@@ -6,16 +6,14 @@ import IndexPage from './components/IndexPage'
 
 const root = document.getElementById('root')
 
-
 const App = () => {
   return (
     <StrictMode>
       <BrowserRouter>
 
         <IndexPage />
-        
-        <Routes>
-        </Routes>
+
+        <Routes />
       </BrowserRouter>
     </StrictMode>
   )
