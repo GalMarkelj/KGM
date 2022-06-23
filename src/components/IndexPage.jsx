@@ -2,6 +2,7 @@ import Header from './Header'
 import SiteTitle from './SiteTitle'
 import ObliqueCard from './ObliqueCard'
 import ClickElement from './ClickElement'
+import Banner from './Banner'
 
 import mainBackground from '../images/background/main-background.jpg'
 import testImage from '../images/background/lambo.jpg'
@@ -16,6 +17,9 @@ const IndexPage = () => (
     </div>
     <h2 className='container h1 f--secondary'>Latest Projects</h2>
     <ObliqueCard cardItems={obliqueCardItems} />
+    <div className="m-top--xl">
+      <Banner {...bannerItems} />
+    </div>
   </div>
 )
 
@@ -65,3 +69,14 @@ const obliqueCardItems = [
     alignLeft: false
   }
 ]
+
+const bannerItems = {
+  title: 'Contact me',
+  paragraph: `I'm always interested to learn new things and also mistakes I make.`,
+  clickElement: {
+    label: 'Email me',
+    elementType: 'a',
+    classes: 'f--l',
+    url: 'mailto:galmarkelj09@gmail.com',
+  }
+}
