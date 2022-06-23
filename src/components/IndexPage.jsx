@@ -1,6 +1,7 @@
 import Header from './Header'
 import SiteTitle from './SiteTitle'
 import ObliqueCard from './ObliqueCard'
+import ClickElement from './ClickElement'
 
 import mainBackground from '../images/background/main-background.jpg'
 import testImage from '../images/background/lambo.jpg'
