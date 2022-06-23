@@ -1,9 +1,8 @@
-import Header from './Header'
 import SiteTitle from './SiteTitle'
 import ObliqueCard from './ObliqueCard'
-import ClickElement from './ClickElement'
 import Banner from './Banner'
 
+// images
 import mainBackground from '../images/background/main-background.jpg'
 import testImage from '../images/background/lambo.jpg'
 import test from '../images/test.jpg'
@@ -11,7 +10,6 @@ import test from '../images/test.jpg'
 const IndexPage = () => (
   <div>
     <div className='full--height'>
-      <Header />
       <img src={mainBackground} alt='Main background' className='main-background fixed--top width--100p height--100p' />
       <SiteTitle />
     </div>
