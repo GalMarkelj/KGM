@@ -1,0 +1,7 @@
+@use '../general';
+
+#footer { padding: 4rem 0; }
+#footer li {
+  margin-right: 2em;
+  &:last-child { margin-right: 0; }
+}
