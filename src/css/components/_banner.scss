@@ -1,0 +1,6 @@
+@use '../general' as app;
+
+.banner {
+  padding: 4rem 0;
+  background-color: app.$sky_rainy_c;
+}
