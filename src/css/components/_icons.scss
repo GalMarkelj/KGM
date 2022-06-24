@@ -1,0 +1,10 @@
+@use '../general' as app;
+
+.icon--barbie {
+  color: app.$barbie_c;
+  transition: all app.$trans_fast ease;
+  &:hover {
+    transform: scale(1.1);
+    color: darken(app.$barbie_c, 15%);
+  }
+}

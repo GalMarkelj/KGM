@@ -5,11 +5,11 @@ const FooterLink = ({ url, label, icon, isExternal }) => (
     {isExternal
       ? <a href={url} className='nav-list__item--link f--xl t--normal c--light' target="_blank">
           {label}
-          {!!icon && <span className={`${icon} c--barbie f--xxl`} />}
+          {!!icon && <span className={`${icon} icon--barbie f--xxl`} />}
         </a>
       : <Link to={url} className='nav-list__item--link f--xl t--normal c--light'>
           {label}
-          {!!icon && <span className={`${icon} c--barbie f--xxl`} />}
+          {!!icon && <span className={`${icon} icon--barbie f--xxl`} />}
         </Link>}
   </li>
 )
