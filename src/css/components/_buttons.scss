@@ -1,0 +1,20 @@
+@use '../general' as app;
+
+.button {
+  padding: .8em 1em;
+  border-radius: 5px;
+  border: 0;
+  font-weight: 500;
+  transition: app.$trans_fast ease-in-out;
+}
+
+.button.button--barbie {
+  background-color: app.$barbie_c;
+  color: app.$light_c;
+  &:hover { background-color: darken(app.$barbie_c, 20%); }
+}
+.button.button--barbie-dark {
+  background-color: app.$barbie_dark_c;
+  color: app.$light_c;
+  &:hover { background-color: lighten(app.$barbie_dark_c, 10%); }
+}
