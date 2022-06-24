@@ -6,13 +6,14 @@ import logo from '../images/logo/KGM_1_outline.svg'
 const headerLinks = [
   { url: '/projects', label: 'Projects' },
   { url: '/resume', label: 'Resume' },
-  { url: 'https://github.com/GalMarkelj', label: 'Github', icon: 'fa-brands fa-github', isExtrnal: true }
+  { url: 'https://github.com/GalMarkelj', label: 'Github', icon: 'fa-brands fa-github', isExternal: true },
+  { url: 'https://www.linkedin.com/in/klavdij-gal-markelj-294455243/', label: 'Linked', icon: 'fa-brands fa-linkedin', isExternal: true }
 ]
 
 const HeaderLink = ({ url, label, icon, isExternal }) => (
   <li className='nav-list__item'>
     {isExternal
-      ? <a href={url} className='nav-list__item--link f--xl t--normal c--light'>{label}</a>
+      ? <a href={url} className='nav-list__item--link f--xl t--normal c--light' target="_blank">{label}</a>
       : <Link to={url} className='nav-list__item--link f--xl t--normal c--light'>{label}</Link>}
     {!!icon && <span className={`${icon} c--sky m-left--xs f--xl`} />}
   </li>
