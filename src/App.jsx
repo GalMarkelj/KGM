@@ -9,8 +9,6 @@ import Footer from './components/Footer'
 // pages
 import IndexPage from './components/IndexPage'
 
-// js
-import events from './helpers/utils'
 
 const root = document.getElementById('root')
 
