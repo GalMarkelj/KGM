@@ -13,7 +13,7 @@
   & li { margin-left: 10px; }
   & li:first-child { margin-left: 0; }
 }
-.oblique-card .oblique-card__image {
+.oblique-card__image {
   grid-column: 1 / 7;
   grid-row: 1/2;
   border-left: 1px solid app.$sky_c;
@@ -21,11 +21,11 @@
   border-radius: 25px;
   width: 100%;
 }
-.oblique-card__content--description {
+.oblique-card__content-description {
   border-radius: 10px;
   background: linear-gradient(to left, transparent, rgba(83, 83, 83, 0.918))  
 }
-.oblique-card.oblique-card--reverse .oblique-card__content--description {
+.oblique-card.oblique-card--reverse .oblique-card__content-description {
   background: linear-gradient(to right, transparent, rgba(83, 83, 83, 0.918));
 }
 .oblique-card.oblique-card--reverse .oblique-card__content {
@@ -40,4 +40,18 @@
   border-right: 1px solid app.$sky_c;
   border-top: 1px solid app.$sky_c;
   border-left: 0;
+}
+
+@media (max-width: 786px) {
+  .oblique-card {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+  }
+  .oblique-card__image {
+    padding: 0;
+    border: none;
+    order: 2;
+  }
+  .oblique-card.oblique-card--reverse .oblique-card__image { border: none; }
 }
