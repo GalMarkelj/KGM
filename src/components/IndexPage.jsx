@@ -2,6 +2,8 @@ import SiteTitle from './SiteTitle'
 import ObliqueCard from './ObliqueCard'
 import Banner from './Banner'
 import { InternalLinkButton } from './Button'
+import { Slider, Slide } from './Slider'
+import ObliqueCard from './ObliqueCard'
 
 // images
 import mainBackground from '../images/background/main-background.jpg'
@@ -10,13 +12,15 @@ import test from '../images/test.jpg'
 
 const IndexPage = () => (
   <div>
-    <div className='full--height'>
-      <img src={mainBackground} alt='Main background' className='main-background fixed--top width--100p height--100p' />
+    <div className="full--height">
+      <img src={mainBackground} alt="Main background" className="main-background fixed--top width--100p height--100p" />
       <SiteTitle />
     </div>
-    <h2 className='container h1 f--secondary'>Latest Projects</h2>
-    <ObliqueCard cardItems={obliqueCardItems} />
-    <div className="flex flex--center m-top--l">
+    <h2 className="container h1 f--secondary">Latest Projects</h2>
+    <Slider className="slider--fade slider--mobile">
+      {obliqueCardItems.map((item) => <Slide><ObliqueCard {...item} /></Slide>)}
+    </Slider>
+    <div className="flex flex--center m-top--xl">
       <InternalLinkButton mods={['barbie']} to="/projects">All projects</InternalLinkButton>
     </div>
     <div className="m-top--xl">
