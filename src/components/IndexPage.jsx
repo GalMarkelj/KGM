@@ -16,7 +16,7 @@ const IndexPage = () => (
       <img src={mainBackground} alt="Main background" className="main-background fixed--top width--100p height--100p" />
       <SiteTitle />
     </div>
-    <h2 className="container h1 f--secondary">Latest Projects</h2>
+    <h2 className="container h1 f--secondary p-side--s">Latest Projects</h2>
     <Slider className="slider--fade slider--mobile">
       {obliqueCardItems.map((item) => <Slide><ObliqueCard {...item} /></Slide>)}
     </Slider>
