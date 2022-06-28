@@ -1,9 +1,9 @@
-import SiteTitle from './SiteTitle'
-import ObliqueCard from './ObliqueCard'
-import Banner from './Banner'
-import { InternalLinkButton } from './Button'
-import { Slider, Slide } from './Slider'
-import ObliqueCard from './ObliqueCard'
+import SiteTitle from '../components/SiteTitle'
+import ObliqueCard from '../components/ObliqueCard'
+import Banner from '../components/Banner'
+import { InternalLinkButton } from '../components/Button'
+import { Slider, Slide } from '../components/Slider'
+import ObliqueCard from '../components/ObliqueCard'
 
 // images
 import mainBackground from '../images/background/main-background.jpg'

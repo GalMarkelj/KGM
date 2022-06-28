@@ -3,11 +3,12 @@ import { StrictMode } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 // components
-import Header from './components/Header'
-import Footer from './components/Footer'
+import Header from './src/components/Header'
+import Footer from './src/components/Footer'
 
 // pages
-import IndexPage from './components/IndexPage'
+import IndexPage from './src/pages/IndexPage'
+import ProjectsPage from './src/pages/ProjectsPage'
 
 
 const root = document.getElementById('root')
@@ -17,9 +18,11 @@ const App = () => {
     <StrictMode>
       <BrowserRouter>
         <Header />
-        <IndexPage />
+        <Routes>
+          <Route path="/" element={<IndexPage />} />
+          <Route path="/projects" element={<ProjectsPage />} />
+        </Routes>
         <Footer />
-        <Routes />
       </BrowserRouter>
     </StrictMode>
   )
