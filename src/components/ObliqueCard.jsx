@@ -1,7 +1,17 @@
-const Card = ({ date, title, inProgress, description, list, listItems, image, cardExternal, alignLeft }) => (
+const ObliqueCard = ({
+  date,
+  title,
+  inProgress,
+  description,
+  list,
+  listItems,
+  image,
+  cardExternal,
+  alignLeft }) => (
   <div
     className={`oblique-card p-side--s pos--rel container m-top--xxl 
     ${alignLeft ? 'oblique-card--reverse' : ' '}`}
+    data-card-title={title}
   >
     <div className='oblique-card__content'>
       <span className='f--s'>{date}</span>
@@ -16,10 +26,6 @@ const Card = ({ date, title, inProgress, description, list, listItems, image, ca
     </div>
     <img src={image} alt='Card image' className='oblique-card__image p--m' />
   </div>
-)
-
-const ObliqueCard = ({ cardItems }) => (
-  <div> {cardItems.map((card) => <Card {...card} />)} </div>
 )
 
 export default ObliqueCard
