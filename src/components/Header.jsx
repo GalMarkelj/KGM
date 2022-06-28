@@ -1,4 +1,5 @@
 
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 import logo from '../images/logo/KGM_1_outline.svg'
@@ -26,7 +27,10 @@ const MainHeader = ({ links }) => (
         <ul className='list--inline f--secondary nav-list'>
           {links.map((link) => <HeaderLink key={link.url} {...link} />)}
           <li className='nav-list__item'>
-            <span className='fa-solid fa-bars c--sky f--xxl' />
+            <span
+              className='fa-solid fa-bars c--sky f--xxl'
+              onClick={() => setActiveSubHeader(true)}
+            />
           </li>
         </ul>
       </nav>
@@ -39,7 +43,10 @@ const SubHeader = ({ links }) => (
       <nav className='nav m-top--s'>
         <div className='flex flex--apart flex--middle'>
           <Link to='/' className='nav__logo'><img src={logo} alt='KGM logo' /></Link>
-          <span className='fa-solid fa-circle-xmark c--sky f--xxl' />
+          <span
+            className='fa-solid fa-circle-xmark c--sky f--xxl'
+            onClick={() => setActiveSubHeader(false)}
+          />
         </div>
         <div className='overflow-line m-top--s' />
         <ul className='nav-list f--secondary m-top--s'>
@@ -57,6 +64,17 @@ const SubHeader = ({ links }) => (
   </div>
 )
 const Header = () => {
+  const [activeSubHeader, setActiveSubHeader] = useState(false)
+
+  useEffect(() => {
+    const subHeader = document.getElementById('sub-header')
+    if (activeSubHeader) {
+      subHeader.classList.add('sub-header--active')
+    } else {
+      subHeader.classList.remove('sub-header--active')
+    }
+
+  }, [activeSubHeader])
   return (
     <div>
       <MainHeader links={headerLinks} />
