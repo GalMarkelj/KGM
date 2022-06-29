@@ -17,6 +17,7 @@
   bottom: 100%;
   background-color: app.$bg_color;
   transition: app.$trans_slow;
+  &.sub-header--active { bottom: 0; }
 }
 #sub-header .nav-list {
   padding: 0;

@@ -1,4 +1,5 @@
 
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 import logo from '../images/logo/KGM_1_outline.svg'
@@ -18,7 +19,7 @@ const HeaderLink = ({ url, label, icon, isExternal }) => (
     {!!icon && <span className={`${icon} c--sky m-left--xs f--xl`} />}
   </li>
 )
-const MainHeader = ({ links }) => (
+const MainHeader = ({ links, activateSubHeader }) => (
   <header id='header' className='container m-top--s'>
     <div className='p-side--s'>
       <nav className='nav flex flex--apart flex--middle'>
@@ -26,20 +27,26 @@ const MainHeader = ({ links }) => (
         <ul className='list--inline f--secondary nav-list'>
           {links.map((link) => <HeaderLink key={link.url} {...link} />)}
           <li className='nav-list__item'>
-            <span className='fa-solid fa-bars c--sky f--xxl' />
+            <span
+              className='fa-solid fa-bars c--sky f--xxl'
+              onClick={() => activateSubHeader(true)}
+            />
           </li>
         </ul>
       </nav>
     </div>
   </header>
 )
-const SubHeader = ({ links }) => (
+const SubHeader = ({ links, activateSubHeader }) => (
   <div id='sub-header' className='pos--abs width--100p height--100p'>
     <div className='p-side--s'>
       <nav className='nav m-top--s'>
         <div className='flex flex--apart flex--middle'>
           <Link to='/' className='nav__logo'><img src={logo} alt='KGM logo' /></Link>
-          <span className='fa-solid fa-circle-xmark c--sky f--xxl' />
+          <span
+            className='fa-solid fa-circle-xmark c--sky f--xxl'
+            onClick={() => activateSubHeader(false)}
+          />
         </div>
         <div className='overflow-line m-top--s' />
         <ul className='nav-list f--secondary m-top--s'>
@@ -57,10 +64,20 @@ const SubHeader = ({ links }) => (
   </div>
 )
 const Header = () => {
+  const [activeSubHeader, setActiveSubHeader] = useState(false)
+  useEffect(() => {
+    const subHeader = document.getElementById('sub-header')
+    if (activeSubHeader) {
+      subHeader.classList.add('sub-header--active')
+    } else {
+      subHeader.classList.remove('sub-header--active')
+    }
+
+  }, [activeSubHeader])
   return (
     <div>
-      <MainHeader links={headerLinks} />
-      <SubHeader links={headerLinks} />
+      <MainHeader links={headerLinks} activateSubHeader={setActiveSubHeader} />
+      <SubHeader links={headerLinks} activateSubHeader={setActiveSubHeader} />
     </div>
   )
 }
