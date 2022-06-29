@@ -19,7 +19,7 @@ const HeaderLink = ({ url, label, icon, isExternal }) => (
     {!!icon && <span className={`${icon} c--sky m-left--xs f--xl`} />}
   </li>
 )
-const MainHeader = ({ links }) => (
+const MainHeader = ({ links, activateSubHeader }) => (
   <header id='header' className='container m-top--s'>
     <div className='p-side--s'>
       <nav className='nav flex flex--apart flex--middle'>
@@ -29,7 +29,7 @@ const MainHeader = ({ links }) => (
           <li className='nav-list__item'>
             <span
               className='fa-solid fa-bars c--sky f--xxl'
-              onClick={() => setActiveSubHeader(true)}
+              onClick={() => activateSubHeader(true)}
             />
           </li>
         </ul>
@@ -37,7 +37,7 @@ const MainHeader = ({ links }) => (
     </div>
   </header>
 )
-const SubHeader = ({ links }) => (
+const SubHeader = ({ links, activateSubHeader }) => (
   <div id='sub-header' className='pos--abs width--100p height--100p'>
     <div className='p-side--s'>
       <nav className='nav m-top--s'>
@@ -45,7 +45,7 @@ const SubHeader = ({ links }) => (
           <Link to='/' className='nav__logo'><img src={logo} alt='KGM logo' /></Link>
           <span
             className='fa-solid fa-circle-xmark c--sky f--xxl'
-            onClick={() => setActiveSubHeader(false)}
+            onClick={() => activateSubHeader(false)}
           />
         </div>
         <div className='overflow-line m-top--s' />
@@ -65,7 +65,6 @@ const SubHeader = ({ links }) => (
 )
 const Header = () => {
   const [activeSubHeader, setActiveSubHeader] = useState(false)
-
   useEffect(() => {
     const subHeader = document.getElementById('sub-header')
     if (activeSubHeader) {
@@ -77,8 +76,8 @@ const Header = () => {
   }, [activeSubHeader])
   return (
     <div>
-      <MainHeader links={headerLinks} />
-      <SubHeader links={headerLinks} />
+      <MainHeader links={headerLinks} activateSubHeader={setActiveSubHeader} />
+      <SubHeader links={headerLinks} activateSubHeader={setActiveSubHeader} />
     </div>
   )
 }
