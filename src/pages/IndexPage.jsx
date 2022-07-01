@@ -33,7 +33,7 @@ export default IndexPage
 
 const obliqueCardItems = [
   {
-    date: '5.5.2022',
+    date: new Date('2022-05-05'),
     title: 'Authentication-app',
     inProgress: true,
     description: `
@@ -49,7 +49,7 @@ const obliqueCardItems = [
     alignLeft: false
   },
   {
-    date: '13.4.2022',
+    date: new Date('2022-04-13'),
     title: 'Beauty - Glow',
     inProgress: false,
     description: `
@@ -63,7 +63,7 @@ const obliqueCardItems = [
     alignLeft: true
   },
   {
-    date: '10.1.2022',
+    date: new Date('2022-01-10'),
     title: 'Aplication form',
     inProgress: false,
     description: `
