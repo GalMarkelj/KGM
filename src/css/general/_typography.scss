@@ -157,3 +157,17 @@ a:hover { text-decoration: none; }
 .t-spacing--s { letter-spacing: 0.05em; }
 .t-spacing--m { letter-spacing: 0.1em; }
 .t-spacing--l { letter-spacing: 0.15em; }
+
+// max letters
+.t-max--30 { max-width: 30vmax; }
+.t-max--40 { max-width: 40vmax; }
+.t-max--50 { max-width: 50vmax; }
+.t-max--60 { max-width: 60vmax; }
+.t-max--70 { max-width: 70vmax; }
+.t-max--80 { max-width: 80vmax; }
+
+// underlines
+.t-underline--sky-c {
+  text-decoration: underline;
+  text-decoration-color: $sky_c;
+}
