@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -37,8 +36,8 @@ const MainHeader = ({ links, activateSubHeader }) => (
     </div>
   </header>
 )
-const SubHeader = ({ links, activateSubHeader }) => (
-  <div id='sub-header' className='pos--abs width--100p height--100p'>
+const SubHeader = ({ links, activateSubHeader, className}) => (
+  <div id='sub-header' className={`pos--abs width--100p height--100p ${className}`}>
     <div className='p-side--s'>
       <nav className='nav m-top--s'>
         <div className='flex flex--apart flex--middle'>
@@ -65,19 +64,10 @@ const SubHeader = ({ links, activateSubHeader }) => (
 )
 const Header = () => {
   const [activeSubHeader, setActiveSubHeader] = useState(false)
-  useEffect(() => {
-    const subHeader = document.getElementById('sub-header')
-    if (activeSubHeader) {
-      subHeader.classList.add('sub-header--active')
-    } else {
-      subHeader.classList.remove('sub-header--active')
-    }
-
-  }, [activeSubHeader])
   return (
     <div>
       <MainHeader links={headerLinks} activateSubHeader={setActiveSubHeader} />
-      <SubHeader links={headerLinks} activateSubHeader={setActiveSubHeader} />
+      <SubHeader links={headerLinks} activateSubHeader={setActiveSubHeader} className={activeSubHeader ? 'sub-header--active' : ''} />
     </div>
   )
 }
