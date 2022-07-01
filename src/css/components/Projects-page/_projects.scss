@@ -1,9 +1,10 @@
 @use '../../general' as app;
 
-#projects-page .oblique-card {
+#projects-page .projects .oblique-card {
   z-index: 1;
   padding: 20px;
   background-color: app.$bg_color;
+  &:first-child { margin-top: 0 !important; }
 }
 #projects-page .oblique-card__image {
   border: 0;
@@ -12,7 +13,7 @@
 #projects-page .timeline {
   z-index: -1;
   position: absolute;
-  top: 100px;
+  top: 0;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
