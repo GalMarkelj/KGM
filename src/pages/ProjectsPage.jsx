@@ -11,6 +11,7 @@ import test from '../images/test.jpg'
 const ProjectsPage = () => {
 
   const [isLatest, setIsLatest] = useState(true)
+  const [showAll, setShowAll] = useState(false)
 
   return (
     <div id="projects-page" className="container">
@@ -55,8 +56,19 @@ const ProjectsPage = () => {
         {
           projects.sort(
             (cur, acc) => isLatest  ? acc.date - cur.date : cur.date - acc.date )
-            .map((project) => <ObliqueCard {...project} />)
+            .map((project, i) => {
+              if (!showAll) {
+                if (i < 3) return <ObliqueCard {...project} />
+              } else {
+                return <ObliqueCard {...project} />
+              }
+            })
         }
+        <Button
+          mods={['barbie']}
+          className={['f--l']}
+          onClick={() => showAll ? setShowAll(false) : setShowAll(true)}
+        >{showAll ? 'Hide' : 'Load all'}</Button>
       </div>
 
     </div>
@@ -92,6 +104,20 @@ const projects = [
     listItems: ['NodeJs', 'Express', 'EJS', 'SQLite'],
     image: testImage,
     cardExternal: 'https://github.com/GalMarkelj/authentication-app',
+    alignLeft: true
+  },
+  {
+    date: new Date('2022-04-13'),
+    title: 'Beauty - Glow',
+    inProgress: false,
+    description: `
+      When my practical education started me and my colleague Luka Štiglic were given the assignment to build this project for a customer.
+      This was our first legit project that we build.
+    `,
+    list: 'Technologies used include:',
+    listItems: ['Wordpress', 'SCSS', 'PHP'],
+    image: test,
+    cardExternal: 'https://beautyglowinsideout.si',
     alignLeft: false
   },
   {
@@ -107,6 +133,20 @@ const projects = [
     image: test,
     cardExternal: 'https://beautyglowinsideout.si',
     alignLeft: true
+  },
+  {
+    date: new Date('2022-04-13'),
+    title: 'Beauty - Glow',
+    inProgress: false,
+    description: `
+      When my practical education started me and my colleague Luka Štiglic were given the assignment to build this project for a customer.
+      This was our first legit project that we build.
+    `,
+    list: 'Technologies used include:',
+    listItems: ['Wordpress', 'SCSS', 'PHP'],
+    image: test,
+    cardExternal: 'https://beautyglowinsideout.si',
+    alignLeft: false
   }
 ]
 
