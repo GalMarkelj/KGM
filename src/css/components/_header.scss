@@ -10,7 +10,7 @@
 :is(#header, #sub-header) .nav-list__item--link {
   transition: color app.$trans_fast ease-in;
   &:hover { color: app.$barbie_c; }
-  &.is--active {
+  &.active {
     text-decoration: underline;
     text-decoration-color: app.$barbie_c;
     text-decoration-thickness: 2px;
