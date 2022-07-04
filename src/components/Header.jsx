@@ -41,15 +41,15 @@ const SubHeader = ({ links, activateSubHeader, className}) => (
     <div className='p-side--s'>
       <nav className='nav m-top--s'>
         <div className='flex flex--apart flex--middle'>
-          <Link to='/' className='nav__logo'><img src={logo} alt='KGM logo' /></Link>
+          <Link to='/' className='nav__logo'><img src={logo} alt='KGM logo' onClick={() => activateSubHeader(false)} /></Link>
           <span
             className='fa-solid fa-circle-xmark c--sky f--xxl'
             onClick={() => activateSubHeader(false)}
           />
         </div>
         <div className='overflow-line m-top--s' />
-        <ul className='nav-list f--secondary m-top--s'>
-          {links.map((link) => <HeaderLink key={link.url} {...link} />)}
+        <ul className='nav-list f--secondary m-top--s' onClick={() => activateSubHeader(false)}>
+          {links.map((link) => <HeaderLink key={link.url} {...link} closeSubHeader={activateSubHeader} />)}
         </ul>
       </nav>
 
