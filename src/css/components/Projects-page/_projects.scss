@@ -1,0 +1,25 @@
+@use '../../general' as app;
+
+#projects-page .projects .oblique-card {
+  z-index: 1;
+  padding: 20px;
+  background-color: app.$bg_color;
+  &:first-child { margin-top: 0 !important; }
+}
+#projects-page .oblique-card__image {
+  border: 0;
+  box-shadow: 0 0 20px app.$sky_c;
+}
+#projects-page .timeline {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px; height: 100%;
+  background-color: app.$sky_dark_c;
+}
+@media (max-width: 900px) {
+  #projects-page .oblique-card { margin-top: 130px;}
+}
