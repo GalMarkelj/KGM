@@ -39,7 +39,7 @@ const ProjectsPage = () => {
         <span className="h1 t-underline--sky-c">All my projects are listed below ↓</span>
       </div>
 
-      <div className="overflow-line m-top--m" />
+      <div className="overflow-line m-top--l" />
 
       <div className="projects pos--rel">
         <div className="t--center m-top--xl">
@@ -73,6 +73,8 @@ const ProjectsPage = () => {
             >{showAll ? 'Hide' : 'Load all'}</Button>
         </div>
       </div>
+
+      <div className='overflow-line m-top--l' />
 
     </div>
   )
