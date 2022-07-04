@@ -56,7 +56,8 @@ const ProjectsPage = () => {
         {
           projects.sort(
             (cur, acc) => isLatest  ? acc.date - cur.date : cur.date - acc.date )
-            .map((project, i) => {
+            .map((project, i, arr) => {
+              i % 2 === 0 ? arr[i].alignLeft = true : arr[i].alignLeft = false
               if (!showAll) {
                 if (i < 3) return <ObliqueCard {...project} />
               } else {
@@ -64,11 +65,13 @@ const ProjectsPage = () => {
               }
             })
         }
-        <Button
-          mods={['barbie']}
-          className={['f--l']}
-          onClick={() => showAll ? setShowAll(false) : setShowAll(true)}
-        >{showAll ? 'Hide' : 'Load all'}</Button>
+        <div className="t--center m-top--xl">
+          <Button
+              mods={['barbie']}
+              className={['f--l']}
+              onClick={() => showAll ? setShowAll(false) : setShowAll(true)}
+            >{showAll ? 'Hide' : 'Load all'}</Button>
+        </div>
       </div>
 
     </div>
@@ -88,7 +91,6 @@ const projects = [
     list: 'Technologies used include:',
     listItems: ['HTML', 'CSS', 'JavaScript'],
     image: testImage,
-    alignLeft: false
   },
   {
     date: new Date('2022-05-05'),
@@ -104,7 +106,6 @@ const projects = [
     listItems: ['NodeJs', 'Express', 'EJS', 'SQLite'],
     image: testImage,
     cardExternal: 'https://github.com/GalMarkelj/authentication-app',
-    alignLeft: true
   },
   {
     date: new Date('2022-04-13'),
@@ -118,7 +119,6 @@ const projects = [
     listItems: ['Wordpress', 'SCSS', 'PHP'],
     image: test,
     cardExternal: 'https://beautyglowinsideout.si',
-    alignLeft: false
   },
   {
     date: new Date('2022-04-13'),
@@ -132,7 +132,6 @@ const projects = [
     listItems: ['Wordpress', 'SCSS', 'PHP'],
     image: test,
     cardExternal: 'https://beautyglowinsideout.si',
-    alignLeft: true
   },
   {
     date: new Date('2022-04-13'),
@@ -146,7 +145,6 @@ const projects = [
     listItems: ['Wordpress', 'SCSS', 'PHP'],
     image: test,
     cardExternal: 'https://beautyglowinsideout.si',
-    alignLeft: false
   }
 ]
 
