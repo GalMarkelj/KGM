@@ -18,7 +18,10 @@ const IndexPage = () => (
     </div>
     <h2 className="container h1 f--secondary p-side--s">Latest Projects</h2>
     <Slider className="slider--fade slider--mobile">
-      {obliqueCardItems.map((item) => <Slide><ObliqueCard {...item} /></Slide>)}
+      {obliqueCardItems.map((item, i, arr) => {
+        i % 2 === 0 ? arr[i].alignLeft = true : arr[i].alignLeft = false
+        return <Slide><ObliqueCard {...item} /></Slide>
+      })}
     </Slider>
     <div className="flex flex--center m-top--xl">
       <InternalLinkButton mods={['barbie']} to="/projects">All projects</InternalLinkButton>
@@ -41,38 +44,35 @@ const obliqueCardItems = [
       As a user you can register, login and then insert your "personal" data and also update it if you like.
       My plan in the future is to continue further into the deep of the back-end.
       You can visit the project and set it up locally, by visiting my github repo below.
-    `,
-    list: 'Technologies used include:',
-    listItems: ['NodeJs', 'Express', 'EJS', 'SQLite'],
-    image: testImage,
-    cardExternal: 'https://github.com/GalMarkelj/authentication-app',
-    alignLeft: false
-  },
-  {
-    date: new Date('2022-04-13'),
-    title: 'Beauty - Glow',
-    inProgress: false,
-    description: `
+      `,
+      list: 'Technologies used include:',
+      listItems: ['NodeJs', 'Express', 'EJS', 'SQLite'],
+      image: testImage,
+      cardExternal: 'https://github.com/GalMarkelj/authentication-app',
+    },
+    {
+      date: new Date('2022-04-13'),
+      title: 'Beauty - Glow',
+      inProgress: false,
+      description: `
       When my practical education started me and my colleague Luka Štiglic were given the assignment to build this project for a customer.
       This was our first legit project that we build.
-    `,
-    list: 'Technologies used include:',
-    listItems: ['Wordpress', 'SCSS', 'PHP'],
-    image: test,
-    cardExternal: 'https://beautyglowinsideout.si',
-    alignLeft: true
-  },
-  {
+      `,
+      list: 'Technologies used include:',
+      listItems: ['Wordpress', 'SCSS', 'PHP'],
+      image: test,
+      cardExternal: 'https://beautyglowinsideout.si',
+    },
+    {
     date: new Date('2022-01-10'),
     title: 'Aplication form',
     inProgress: false,
     description: `
-      The very first day of my practical education when I met my mentor, I was given an assignment form him to see where my knowledge about programming lies.
+    The very first day of my practical education when I met my mentor, I was given an assignment form him to see where my knowledge about programming lies.
     `,
     list: 'Technologies used include:',
     listItems: ['HTML', 'CSS', 'JavaScript'],
     image: testImage,
-    alignLeft: false
   }
 ]
 
