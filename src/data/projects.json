@@ -1,0 +1,115 @@
+[
+  {
+    "title": "Authentication-app",
+    "date": "\"2022-05-05T00:00:00.000Z\"",
+    "inProgress": true,
+    "description": "Purpose of this project was to learn how does the back-end work and besides, it was just as well a school project. As a user you can register, login and then insert your 'personal' data and also update it if you like. My plan in the future is to continue further into the deep of the back-end. You can visit the project and set it up locally, by visiting my github repo below.",
+    "tools": ["NodeJs", "Express", "EJC", "SQLite"],
+    "projectURL": "https://github.com/GalMarkelj/authentication-app",
+    "projectImage": "http://localhost:1234/testImage1.119a7262.jpg?1657005220949",
+    "slider": ["images", "images", "images"],
+    "elements": [
+      {
+        "title": "Description", 
+        "content": "With this project I made my first interaction with the back-end, meaning, I create a simple application that interacts with the database trough REST API. I used server-side JavaScript run-time environment called NodeJs with Express framework. Trough user prespective you are able to register, login and then insert your 'personal' information and later if you like also update them. With that said, those are all the CRUID operations. I create a local session soo that you can stay logged in even if you refresh the browser or go to another page, but in this case meaning of that session is that if you are logged in you are not able to visit pages login and register."
+      },
+      {
+        "title": "Registration interface", 
+        "content": "At registration I'm using express-validator libary ( to check if username has at least 3 characters, if it's a valid email, if the two inserted passwords match and have at least 8 characters ) and for password hashing usgin bcrypt libary."
+      },
+      {
+        "title": "Login interface",
+        "content": "When logging in I'm using passport libary, first for validating login data with user data from the database (cheching if user exists with that username and with bcrypt libary comparing password form the database and inserted password) and if that goes trough, create a local session with passport-local."
+      },
+      {
+        "title": "View",
+        "content": "To display the content form the database I'm using EJS view engien."
+      },
+      {
+        "title": "Admin privileges",
+        "content": "I create a separate user called Admin, who has privileges to see all registered users and also delete them by their ID from the database."
+      },
+      {
+        "title": "Database",
+        "content": "I'm using SQLite database on this project and Knex ORM to communicate with the database. In the database we have two entitys connected with foreign key. Main entity is the 'User' where we store his username, email and hashed password ( When registering it makes sure that username and email are unique ). Child entity 'User_data' stores Users 'personal' information."
+      },
+      {
+        "title": "Error handling",
+        "content": "If something goes wrong while registering or logging in the application makes sure that displays what went wrong soo that the user knows that to do. If something goes wrong in the back every error is displayed in the console."
+      },
+      {
+        "title": "Overall",
+        "content": "From a visual prespective I can't even say that it looks good, but I think that it is a great project if you want to to know how the back-end works as every good front-end developer should know. My plan in the future is to upgrade my knowledge by using JWT and also build larger application that communicates with the database and its also eye friendly."
+      }
+    ],
+    "list": {
+      "title": "All the dependencies :", 
+      "list_items": [
+        "Express - a minimal and flexible Node. js web application framework that provides a robust set of features for web and mobile applications.",
+        "Express-validator - an Express middleware library that you can incorporate in your apps for server-side data validation.",
+        "Express-flash - an extension of connect-flash with the ability to define a flash message and render it without redirecting the request.",
+        "Express-session - an HTTP server-side framework used to create and manage a session middleware.",
+        "Express-ejs-layouts - help us create projects that are easier to maintain",
+        "EJS - It is a simple templating engine that lets its user generate HTML with plain javascript.",
+        "Body-parser - extracts the entire body portion of an incoming request stream and exposes it on req.body.",
+        "Chalk - used for styling the format of text and allows us to create our own themes in the node.",
+        "Bcrypt - a JavaScript implementation of the bcrypt password hashing function that allows you to easily create a hash out of a password string.",
+        "Knex - a technique that is used to build queries. It supports various databases like Postgres, MySQL, SQLite, Oracle, and some others as well.",
+        "Method-override - lets you use HTTP verbs such as PUT or DELETE in places where the client doesn't support it.",
+        "Nodemon - a tool that helps develop Node. js based applications by automatically restarting the node application when file changes in the directory are detected.",
+        "Passport - A comprehensive set of strategies support authentication using a username and password, Facebook, Twitter, and more",
+        "Passport-local - this module lets you authenticate using a username and password in your Node. js applications.",
+        "Sqlite3 - database that we are using",
+        "Dotenv -zero-dependency module that loads environment variables from a . env file into process. env ."
+      ]
+    }
+  },
+  {
+    "title": "Beauty - Glow",
+    "date": "\"2022-04-13T00:00:00.000Z\"",
+    "inProgress": false,
+    "description": "When my practical education started me and my colleague Luka Štiglic were given the assignment to build this project for a customer. This was our first legit project that we build.",
+    "tools": ["Wordpress", "SCSS", "PHP"],
+    "projectURL": "https://beautyglowinsideout.si/",
+    "projectImage": "http://localhost:1234/testImage2.89dd9296.jpg?1657005239993",
+    "slider": ["images", "images", "images"],
+    "elements": [
+      {
+        "title": "Description",
+        "content": "When me and my college Luka Štiglic started practical education we were given an assignment to build our first legit website for a customer. First we build the website with raw HTML, CSS and JavaScript as result to get to know better with those languages. Then we build it in Wordpress with WPBakery and Istart theme from anpsthemes. Meaning of that website is that a customer can promotes herself by showing what her business is all about and what it offers."
+      },
+      {
+        "title": "Development",
+        "content": "Most of the content is inserted with Wordpress elements, but when we talk about stylesheet, we set some themes intergrated settings, but mostly all of the stylesheet is custom."
+      },
+      {
+        "title": "Shortcode",
+        "content": "For some things that we had to build, plugin don't exist so we had to create a custom shortcode. The good example is the slider to display customer results. You can see how it looks in the top right picutre above. First I wrote raw static markup, but if the customer wanted to change some value, she would had to change it in the markup, so to avoid that I build a custom shortcode. All that customer had to do is to insert values in Wordpress elemetn that I created and the shortcode did the rest. I had skeleton markup written in PHP and the picture and values next to it are all going dynamically from Wordpress element into the markup by a customer."
+      },
+      {
+        "title": "Overall",
+        "content": "With this project I got some knowledge how to set up Wordpress on Linux, build websites with Wordpress, using its plugins and modifying them and building custom shortcodes."
+      },
+      {
+        "title":  "Plugins",
+        "content": "For our requirements these plugins are okey but not exactly what we need. To get what we need we would need to buy premium version of that plugin, so that this did not happen we used those plugins and hardcode them."
+      }
+    ],
+    "list" : {
+      "title": "Plugins we used:",
+      "list_items" : [
+        "Anps Theme plugin",
+        "Contact Form 7 - Just another contact form plugin. Simple but flexible.",
+        "Envato Market - WordPress Theme & Plugin management for the Envato Market.",
+        "Newsletter - Newsletter is a cool plugin to create your own subscriber list, to send newsletters, to build your business. Before update give a look to this page to know what's changed.",
+        "Safe SVG - Allows SVG uploads into WordPress and sanitizes the SVG before saving it",
+        "Slider Revolution - Premium responsive slider",
+        "Smash Balloon Instagram Feed - Display beautifully clean, customizable, and responsive Instagram feeds.",
+        "Visual Portfolio, Posts & Image Gallery - Modern gallery and portfolio plugin with advanced layouts editor. Clean and powerful gallery styles with enormous settings in the Gutenberg block.",
+        "WP Responsive Recent Post Slider/Carousel - Add and display Responsive WordPresss Recent Post Slider and Carousel on your website with 4 designs (Slider) and 1 designs (Carousel) using a shortcode. Also added Gutenberg block support.",
+        "WPBakery Page Builder - Drag and drop page builder for WordPress. Take full control over your WordPress site, build any layout you can imagine – no programming knowledge required.",
+        "Yoast SEO - The first true all-in-one SEO solution for WordPress, including on-page content analysis, XML sitemaps and much more."
+      ]
+    }
+  }
+]
