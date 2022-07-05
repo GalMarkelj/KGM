@@ -5,76 +5,43 @@ import { InternalLinkButton } from '../components/Button'
 import { Slider, Slide } from '../components/Slider'
 import ObliqueCard from '../components/ObliqueCard'
 
+// data
+import projects from '../data/projects.json'
+
 // images
 import mainBackground from '../images/background/main-background.jpg'
-import testImage from '../images/background/lambo.jpg'
-import test from '../images/test.jpg'
 
-const IndexPage = () => (
-  <div>
-    <div className="full--height">
-      <img src={mainBackground} alt="Main background" className="main-background fixed--top width--100p height--100p" />
-      <SiteTitle />
+const IndexPage = () => {
+  const maxNumberOfProjects = 2
+  return (
+    <div>
+      <div className="full--height">
+        <img src={mainBackground} alt="Main background" className="main-background fixed--top width--100p height--100p" />
+        <SiteTitle />
+      </div>
+      <h2 className="container h1 f--secondary p-side--s">Latest Projects</h2>
+      <Slider className="slider--fade slider--mobile">
+          {
+            projects.map((_, i, arr) => i < maxNumberOfProjects && arr[i])
+            .sort((cur, acc) =>  acc.date - cur.date)
+            .map((project, i, arr) => {
+              i % 2 === 0 ? arr[i].alignLeft = true : arr[i].alignLeft = false
+              return <Slide><ObliqueCard {...project} /></Slide>
+            })
+          }
+      </Slider>
+      <div className="flex flex--center m-top--xl">
+        <InternalLinkButton mods={['barbie']} to="/projects">All projects</InternalLinkButton>
+      </div>
+      <div className="m-top--xl">
+        <Banner {...bannerItems} />
+      </div>
     </div>
-    <h2 className="container h1 f--secondary p-side--s">Latest Projects</h2>
-    <Slider className="slider--fade slider--mobile">
-      {obliqueCardItems.map((item, i, arr) => {
-        i % 2 === 0 ? arr[i].alignLeft = true : arr[i].alignLeft = false
-        return <Slide><ObliqueCard {...item} /></Slide>
-      })}
-    </Slider>
-    <div className="flex flex--center m-top--xl">
-      <InternalLinkButton mods={['barbie']} to="/projects">All projects</InternalLinkButton>
-    </div>
-    <div className="m-top--xl">
-      <Banner {...bannerItems} />
-    </div>
-  </div>
-)
+  )
+}
 
 export default IndexPage
 
-const obliqueCardItems = [
-  {
-    date: new Date('2022-05-05'),
-    title: 'Authentication-app',
-    inProgress: true,
-    description: `
-      Purpose of this project was to learn how does the back-end work and besides, it was just as well a school project.
-      As a user you can register, login and then insert your "personal" data and also update it if you like.
-      My plan in the future is to continue further into the deep of the back-end.
-      You can visit the project and set it up locally, by visiting my github repo below.
-      `,
-      list: 'Technologies used include:',
-      listItems: ['NodeJs', 'Express', 'EJS', 'SQLite'],
-      image: testImage,
-      cardExternal: 'https://github.com/GalMarkelj/authentication-app',
-    },
-    {
-      date: new Date('2022-04-13'),
-      title: 'Beauty - Glow',
-      inProgress: false,
-      description: `
-      When my practical education started me and my colleague Luka Štiglic were given the assignment to build this project for a customer.
-      This was our first legit project that we build.
-      `,
-      list: 'Technologies used include:',
-      listItems: ['Wordpress', 'SCSS', 'PHP'],
-      image: test,
-      cardExternal: 'https://beautyglowinsideout.si',
-    },
-    {
-    date: new Date('2022-01-10'),
-    title: 'Aplication form',
-    inProgress: false,
-    description: `
-    The very first day of my practical education when I met my mentor, I was given an assignment form him to see where my knowledge about programming lies.
-    `,
-    list: 'Technologies used include:',
-    listItems: ['HTML', 'CSS', 'JavaScript'],
-    image: testImage,
-  }
-]
 
 const bannerItems = {
   title: 'Contact me',

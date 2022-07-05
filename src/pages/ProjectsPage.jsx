@@ -1,15 +1,17 @@
 import { useState, useEffect } from 'react'
 
+// components
 import { ExternalLinkButton } from '../components/Button'
 import ObliqueCard from '../components/ObliqueCard'
 import { Button } from '../components/Button'
 
+// images
 import titleImage from '../images/vectors/programming-ilustration/SVG/programming-ilustration.svg'
-import testImage from '../images/background/lambo.jpg'
-import test from '../images/test.jpg'
+
+// data
+import projects from '../data/projects.json'
 
 const ProjectsPage = () => {
-
   const [isLatest, setIsLatest] = useState(true)
   const [showAll, setShowAll] = useState(false)
 
@@ -54,8 +56,12 @@ const ProjectsPage = () => {
         </div>
         <div className="timeline" />
         {
-          projects.sort(
-            (cur, acc) => isLatest  ? acc.date - cur.date : cur.date - acc.date )
+          projects.map((project) => project)
+            .sort((first, second) => {
+              const firstDate = new Date(JSON.parse(first.date))
+              const secondDate = new Date(JSON.parse(second.date))
+              return isLatest  ? secondDate - firstDate : firstDate - secondDate
+            })
             .map((project, i, arr) => {
               i % 2 === 0 ? arr[i].alignLeft = true : arr[i].alignLeft = false
               if (!showAll) {
@@ -65,13 +71,18 @@ const ProjectsPage = () => {
               }
             })
         }
-        <div className="t--center m-top--xl">
-          <Button
-              mods={['barbie']}
-              className={['f--l']}
-              onClick={() => showAll ? setShowAll(false) : setShowAll(true)}
-            >{showAll ? 'Hide' : 'Load all'}</Button>
-        </div>
+        {
+          projects.length > 3 ? (
+            <div className="t--center m-top--xl">
+              <Button
+                  mods={['barbie']}
+                  className={['f--l']}
+                  onClick={() => showAll ? setShowAll(false) : setShowAll(true)}
+                >{showAll ? 'Hide' : 'Load all'}</Button>
+            </div>
+          ) : ''
+        }
+
       </div>
 
       <div className='overflow-line m-top--l' />
@@ -82,72 +93,6 @@ const ProjectsPage = () => {
 
 export default ProjectsPage
 
-const projects = [
-  {
-    date: new Date('2022-01-10'),
-    title: 'Aplication form',
-    inProgress: false,
-    description: `
-      The very first day of my practical education when I met my mentor, I was given an assignment form him to see where my knowledge about programming lies.
-    `,
-    list: 'Technologies used include:',
-    listItems: ['HTML', 'CSS', 'JavaScript'],
-    image: testImage,
-  },
-  {
-    date: new Date('2022-05-05'),
-    title: 'Authentication-app',
-    inProgress: true,
-    description: `
-      Purpose of this project was to learn how does the back-end work and besides, it was just as well a school project.
-      As a user you can register, login and then insert your "personal" data and also update it if you like.
-      My plan in the future is to continue further into the deep of the back-end.
-      You can visit the project and set it up locally, by visiting my github repo below.
-    `,
-    list: 'Technologies used include:',
-    listItems: ['NodeJs', 'Express', 'EJS', 'SQLite'],
-    image: testImage,
-    cardExternal: 'https://github.com/GalMarkelj/authentication-app',
-  },
-  {
-    date: new Date('2022-04-13'),
-    title: 'Beauty - Glow',
-    inProgress: false,
-    description: `
-      When my practical education started me and my colleague Luka Štiglic were given the assignment to build this project for a customer.
-      This was our first legit project that we build.
-    `,
-    list: 'Technologies used include:',
-    listItems: ['Wordpress', 'SCSS', 'PHP'],
-    image: test,
-    cardExternal: 'https://beautyglowinsideout.si',
-  },
-  {
-    date: new Date('2022-04-13'),
-    title: 'Beauty - Glow',
-    inProgress: false,
-    description: `
-      When my practical education started me and my colleague Luka Štiglic were given the assignment to build this project for a customer.
-      This was our first legit project that we build.
-    `,
-    list: 'Technologies used include:',
-    listItems: ['Wordpress', 'SCSS', 'PHP'],
-    image: test,
-    cardExternal: 'https://beautyglowinsideout.si',
-  },
-  {
-    date: new Date('2022-04-13'),
-    title: 'Beauty - Glow',
-    inProgress: false,
-    description: `
-      When my practical education started me and my colleague Luka Štiglic were given the assignment to build this project for a customer.
-      This was our first legit project that we build.
-    `,
-    list: 'Technologies used include:',
-    listItems: ['Wordpress', 'SCSS', 'PHP'],
-    image: test,
-    cardExternal: 'https://beautyglowinsideout.si',
-  }
-]
+
 
 import '../helpers/timeline'
