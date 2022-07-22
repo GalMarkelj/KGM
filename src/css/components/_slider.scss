@@ -19,34 +19,3 @@
   }
   &[data-state="active"] { background-color: app.$sky_c; }
 }
-
-// fade slider
-
-.slider.slider--fade {
-  position: relative;
-  padding-bottom: 100%;
-  transition: all app.$trans_default ease-in;
-}
-.slider.slider--fade .slider__slide {
-  position: absolute;
-  opacity: 0;
-  transition: all app.$trans_slow ease-in-out;
-  &.slider__slide--active { opacity: 1; }
-}
-.slider.slider--fade .slider__pagination {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-// only on mobile 
-
-@media (min-width: 786px) {
-  .slider--mobile.slider--fade { padding-bottom: unset !important;}
-  .slider--mobile.slider--fade .slider__slide {
-    position: unset;
-    opacity: 1;
-  }
-  .slider--mobile.slider--fade .slider__pagination { display: none; }
-}

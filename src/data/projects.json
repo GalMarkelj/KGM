@@ -8,11 +8,13 @@
     "projectURL": "https://github.com/GalMarkelj/authentication-app",
     "projectImage": "http://localhost:1234/testImage1.119a7262.jpg?1657005220949",
     "slider": ["images", "images", "images"],
-    "elements": [
+    "model": [
       {
-        "title": "Description", 
-        "content": "With this project I made my first interaction with the back-end, meaning, I create a simple application that interacts with the database trough REST API. I used server-side JavaScript run-time environment called NodeJs with Express framework. Trough user prespective you are able to register, login and then insert your 'personal' information and later if you like also update them. With that said, those are all the CRUID operations. I create a local session soo that you can stay logged in even if you refresh the browser or go to another page, but in this case meaning of that session is that if you are logged in you are not able to visit pages login and register."
-      },
+        "title": "Database",
+        "content": "I'm using SQLite database on this project and Knex ORM to communicate with the database. In the database we have two entitys connected with foreign key. Main entity is the 'User' where we store his username, email and hashed password ( When registering it makes sure that username and email are unique ). Child entity 'User_data' stores Users 'personal' information."
+      }
+    ],
+    "view" : [
       {
         "title": "Registration interface", 
         "content": "At registration I'm using express-validator libary ( to check if username has at least 3 characters, if it's a valid email, if the two inserted passwords match and have at least 8 characters ) and for password hashing usgin bcrypt libary."
@@ -24,19 +26,19 @@
       {
         "title": "View",
         "content": "To display the content form the database I'm using EJS view engien."
-      },
+      }
+    ],
+    "controller" : [
       {
         "title": "Admin privileges",
         "content": "I create a separate user called Admin, who has privileges to see all registered users and also delete them by their ID from the database."
       },
       {
-        "title": "Database",
-        "content": "I'm using SQLite database on this project and Knex ORM to communicate with the database. In the database we have two entitys connected with foreign key. Main entity is the 'User' where we store his username, email and hashed password ( When registering it makes sure that username and email are unique ). Child entity 'User_data' stores Users 'personal' information."
-      },
-      {
         "title": "Error handling",
         "content": "If something goes wrong while registering or logging in the application makes sure that displays what went wrong soo that the user knows that to do. If something goes wrong in the back every error is displayed in the console."
-      },
+      }
+    ],
+    "extraItems": [
       {
         "title": "Overall",
         "content": "From a visual prespective I can't even say that it looks good, but I think that it is a great project if you want to to know how the back-end works as every good front-end developer should know. My plan in the future is to upgrade my knowledge by using JWT and also build larger application that communicates with the database and its also eye friendly."
@@ -60,7 +62,7 @@
         "Passport - A comprehensive set of strategies support authentication using a username and password, Facebook, Twitter, and more",
         "Passport-local - this module lets you authenticate using a username and password in your Node. js applications.",
         "Sqlite3 - database that we are using",
-        "Dotenv -zero-dependency module that loads environment variables from a . env file into process. env ."
+        "Dotenv - zero-dependency module that loads environment variables from a .env file into process.env."
       ]
     }
   },
@@ -73,14 +75,14 @@
     "projectURL": "https://beautyglowinsideout.si/",
     "projectImage": "http://localhost:1234/testImage2.89dd9296.jpg?1657005239993",
     "slider": ["images", "images", "images"],
-    "elements": [
+    "extraItems": [
       {
         "title": "Description",
         "content": "When me and my college Luka Štiglic started practical education we were given an assignment to build our first legit website for a customer. First we build the website with raw HTML, CSS and JavaScript as result to get to know better with those languages. Then we build it in Wordpress with WPBakery and Istart theme from anpsthemes. Meaning of that website is that a customer can promotes herself by showing what her business is all about and what it offers."
       },
       {
         "title": "Development",
-        "content": "Most of the content is inserted with Wordpress elements, but when we talk about stylesheet, we set some themes intergrated settings, but mostly all of the stylesheet is custom."
+        "content": "Most of the content is inserted with Wordpress extraItems, but when we talk about stylesheet, we set some themes intergrated settings, but mostly all of the stylesheet is custom."
       },
       {
         "title": "Shortcode",
