@@ -1,0 +1,52 @@
+@use '../general' as app;
+
+.dropdown {
+  overflow: hidden;
+  transition: all app.$trans_slow;  
+}
+.dropdown--active .dropdown__content { bottom: 0; }
+.dropdown--active .dropdown__trigger { border-color: app.$sky_c; }
+
+.dropdown__trigger {
+  isolation: isolate;
+  width: 100%;
+  height: 2em;
+  padding-bottom: 1em;
+  border-bottom: 1px app.$sky_dark_c solid;
+  background-color: app.$bg_color;;
+  transition: all app.$trans_fast;
+  &:hover { border-color: app.$sky_c; }
+  &:hover .fa-plus { color: app.$sky_c; }
+}
+.fa-plus {
+  color: app.$sky_dark_c;
+  transition: all app.$trans_fast;
+}
+
+.dropdown__content {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  z-index: -2;
+  transition: all app.$trans_slow;
+}
+.dropdown__content-item {
+  margin-top: 20px;
+  padding-bottom: 20px;
+}
+.dropdown__content-item p {
+  margin-top: 20px;
+  max-width: 50vmax;
+}
+
+#project .trigger__title > img  {
+  width: 40px;
+  padding-right: 1em;
+}
+#project .dropdown__trigger { padding-top: 10px; }
+#project .dropdown__content-image {
+  max-width: 290px;
+  width: 100%;
+  transform: scaleX(-1);
+}

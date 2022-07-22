@@ -1,0 +1,22 @@
+@use '../../general' as app;
+
+$slider_max_width: 800px;
+
+#project .project__list {
+  width: 50%;
+  padding-left: 20px;
+  list-style-type: "\1F449";
+}
+#project .project__list-item { padding-left: 10px; }
+
+#project .slider {
+  display: flex;
+  width: $slider_max_width;
+  border-radius: 10px;
+  transition: transform 1s ease-in-out;
+}
+#project .slider__content { width: $slider_max_width; }
+#project .slider-wrapper {
+  max-width: $slider_max_width;
+  overflow: hidden;
+}

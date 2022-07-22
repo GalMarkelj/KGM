@@ -7,6 +7,7 @@
 @use './components/buttons';
 @use './components/icons';
 @use './components/slider';
+@use './components/project-dropdown';
 
 // Index page
 @use './components/IndexPage/main-background';
@@ -14,4 +15,7 @@
 
 // Projects page
 @use './components/Projects-page/page-title';
-@use './components/Projects-page/projects'
+@use './components/Projects-page/projects';
+
+// Project page
+@use './components/ProjectPage/project';
